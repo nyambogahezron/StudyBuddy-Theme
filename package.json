@@ -4,7 +4,7 @@
   "description": "studybuddy theme",
   "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss -i ./index.css -o ./app.css --watch"
+    "dev": "tailwindcss -i ./assets/index.css -o ./assets/app.css --watch"
   },
   "author": "Hezron Nyamboga",
   "license": "ISC",

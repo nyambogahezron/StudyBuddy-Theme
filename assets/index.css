@@ -70,7 +70,9 @@ body.show::before {
   transform: scale(0.98);
 }
 .btn.btn-primary {
-  background: #a784fe;
+  background: transparent;
+  border-radius: 6px;
+  border: 2px solid rgb(94, 94, 199);
 }
 
 .btn.btn-primary:hover {
@@ -79,7 +81,7 @@ body.show::before {
 .btn.btn-secondary {
   padding: 13px 24px;
   border: 2px solid #fff;
-  background: transparent;
+  background: rgb(94, 94, 199);
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;

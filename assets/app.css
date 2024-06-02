@@ -726,8 +726,8 @@ video {
   margin-top: 0.5rem;
 }
 
-.mt-7 {
-  margin-top: 1.75rem;
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .box-border {
@@ -829,8 +829,16 @@ video {
   display: none;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
 .h-screen {
   height: 100vh;
+}
+
+.w-12 {
+  width: 3rem;
 }
 
 .w-\[this-is\\\\\] {
@@ -2020,12 +2028,20 @@ video {
   font-weight: 500;
 }
 
+.font-black {
+  font-weight: 900;
+}
+
 .font-bold {
   font-weight: 700;
 }
 
 .font-extrabold {
   font-weight: 800;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .uppercase {
@@ -2103,6 +2119,11 @@ video {
 .text-\[\#747374\] {
   --tw-text-opacity: 1;
   color: rgb(116 115 116 / var(--tw-text-opacity));
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-blue-500 {
@@ -2481,6 +2502,12 @@ body.show::before {
   height: 100vh;
 }
 
+#landing-page .title{
+  background: linear-gradient(to right, #7d2ae8, #707070);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .container {
   position: relative;
   max-width: 1200px;
@@ -2509,7 +2536,9 @@ body.show::before {
 }
 
 .btn.btn-primary {
-  background: #a784fe;
+  background: transparent;
+  border-radius: 6px;
+  border: 2px solid rgb(94, 94, 199);
 }
 
 .btn.btn-primary:hover {
@@ -2519,7 +2548,7 @@ body.show::before {
 .btn.btn-secondary {
   padding: 13px 24px;
   border: 2px solid #fff;
-  background: transparent;
+  background: rgb(94, 94, 199);
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -2728,8 +2757,17 @@ body.show .form_container {
   }
 }
 
+.hover\:cursor-pointer:hover {
+  cursor: pointer;
+}
+
 .hover\:font-bold:hover {
   font-weight: 700;
+}
+
+.hover\:text-blue-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(29 78 216 / var(--tw-text-opacity));
 }
 
 .before\:hover\:text-center:hover::before {

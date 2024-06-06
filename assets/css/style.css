@@ -443,6 +443,11 @@ a {
 
 .layout {
   position: relative;
+  margin-top: 42rem;
+}
+
+.home.layout {
+  position: relative;
   margin-top: 10rem;
 }
 
@@ -494,7 +499,7 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -46%);
-  background-color: var(--color-dark);
+  background-color: var(--color-white);
   border-radius: 1rem;
   box-shadow: 1px 1px 6px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -865,4 +870,49 @@ a {
 
 .roomListRoom__actions svg {
   fill: var(--color-light-gray);
+}
+
+/*==============================
+=>  Create Room
+================================*/
+
+.create-room.layout .layout__box {
+  max-width: 68rem;
+}
+
+/*==============================
+=>  Update Account
+================================*/
+
+.update-account.layout .layout__box {
+  max-width: 68rem;
+}
+
+/*==============================
+=>  Delete Item
+================================*/
+
+.delete-item.layout .layout__box {
+  max-width: 68rem;
+}
+
+/*==============================
+=>  Auth
+================================*/
+
+.auth__tagline {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--color-main);
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+.auth .layout__boxHeader {
+  text-align: center;
+  justify-content: center;
+}
+
+.auth__action {
+  margin-top: 3rem;
+  text-align: center;
 }

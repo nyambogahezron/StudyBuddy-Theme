@@ -585,6 +585,7 @@ a {
 .form__group input:focus,
 .form__group textarea:focus {
   border-color: var(--color-main);
+  color: var(--color-bg-dark);
 }
 
 .form__group textarea {
@@ -875,7 +876,9 @@ a {
 /*==============================
 =>  Create Room
 ================================*/
-
+.create-room.layout{
+  margin-top: 35rem;
+}
 .create-room.layout .layout__box {
   max-width: 68rem;
 }

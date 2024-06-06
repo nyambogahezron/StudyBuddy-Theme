@@ -567,6 +567,8 @@ a {
   display: block;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  color: var(--color-bg-dark);
+  font-weight: 600;
 }
 
 .form__group input,
@@ -876,9 +878,10 @@ a {
 /*==============================
 =>  Create Room
 ================================*/
-.create-room.layout{
+.create-room.layout {
   margin-top: 35rem;
 }
+
 .create-room.layout .layout__box {
   max-width: 68rem;
 }
@@ -886,7 +889,9 @@ a {
 /*==============================
 =>  Update Account
 ================================*/
-
+.update-account.layout{
+  margin-top: 38rem;
+}
 .update-account.layout .layout__box {
   max-width: 68rem;
 }
@@ -894,10 +899,27 @@ a {
 /*==============================
 =>  Delete Item
 ================================*/
-
+.delete-item.layout {
+  margin-top: 20rem;
+}
 .delete-item.layout .layout__box {
   max-width: 68rem;
+  min-height: 2rem;
 }
+
+.delete-item.layout .layout__box .delete-action {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  float: right;
+  margin-bottom: 1.5rem;
+}
+
+.delete-item.layout .btn.btn--main {
+  background: var(--color-danger);
+  color: var(--color-white);
+}
+
 
 /*==============================
 =>  Auth
@@ -919,3 +941,76 @@ a {
   margin-top: 3rem;
   text-align: center;
 }
+
+
+/*==============================
+=>  Settings
+================================*/
+
+.settings__avatar {
+  margin-bottom: 3rem;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.settings__avatar .avatar {
+  margin: 1rem;
+}
+
+/*==============================
+=>  Profile
+================================*/
+.profile-page.layout{
+  margin-top: 10rem;
+}
+.profile {
+  margin-bottom: 2.3rem;
+}
+
+.profile__avatar {
+  text-align: center;
+}
+.profile__avatar .avatar::after{
+  display: none;
+}
+
+.profile__info {
+  text-align: center;
+}
+
+.profile__info h3 {
+  font-size: 1.5rem;
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
+.profile__info p {
+  color: var(--color-main);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.profile__about {
+  margin-top: 2rem;
+}
+
+.profile__about h3 {
+  text-transform: uppercase;
+  color: var(--color-dark);
+  margin-bottom: 0.5rem;
+}
+.profile__about p{
+  color: var(--color-dark-light);
+  font-weight: 600;
+}
+
+.profile-page .roomList__header {
+  margin-bottom: 1.5rem;
+}
+
+.profile-page .roomList__header h2 {
+  color: var(--color-dark-light);
+}
+

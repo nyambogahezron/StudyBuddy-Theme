@@ -889,7 +889,7 @@ a {
 /*==============================
 =>  Update Account
 ================================*/
-.update-account.layout{
+.update-account.layout {
   margin-top: 38rem;
 }
 .update-account.layout .layout__box {
@@ -920,17 +920,19 @@ a {
   color: var(--color-white);
 }
 
-
 /*==============================
 =>  Auth
 ================================*/
-
+.sign-in.auth.layout{
+  margin-top: 35rem;
+} 
 .auth__tagline {
   text-align: center;
   margin-bottom: 3rem;
   color: var(--color-main);
   font-weight: 500;
   font-size: 1.8rem;
+text-transform: capitalize;
 }
 .auth .layout__boxHeader {
   text-align: center;
@@ -942,11 +944,13 @@ a {
   text-align: center;
 }
 
-
 /*==============================
 =>  Settings
 ================================*/
-
+.settings-page.layout input {
+  color: var(--color-dark-medium);
+  font-weight: 500;
+}
 .settings__avatar {
   margin-bottom: 3rem;
   text-align: center;
@@ -954,15 +958,17 @@ a {
   display: flex;
   justify-content: center;
 }
-
 .settings__avatar .avatar {
   margin: 1rem;
+}
+.settings__avatar .avatar::after {
+  display: none;
 }
 
 /*==============================
 =>  Profile
 ================================*/
-.profile-page.layout{
+.profile-page.layout {
   margin-top: 10rem;
 }
 .profile {
@@ -972,7 +978,7 @@ a {
 .profile__avatar {
   text-align: center;
 }
-.profile__avatar .avatar::after{
+.profile__avatar .avatar::after {
   display: none;
 }
 
@@ -1001,7 +1007,7 @@ a {
   color: var(--color-dark);
   margin-bottom: 0.5rem;
 }
-.profile__about p{
+.profile__about p {
   color: var(--color-dark-light);
   font-weight: 600;
 }
@@ -1013,4 +1019,3 @@ a {
 .profile-page .roomList__header h2 {
   color: var(--color-dark-light);
 }
-

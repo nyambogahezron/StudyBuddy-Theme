@@ -435,7 +435,6 @@ a {
   fill: var(--color-dark);
 }
 
-
 /* main css  */
 
 /*==============================
@@ -454,6 +453,8 @@ a {
 }
 
 .layout--3 > .container > div:first-child {
+  position: fixed;
+  width: 100%;
   flex-basis: 20%;
   max-width: 22.5rem;
   padding: 0 5px 0 5px;
@@ -461,10 +462,18 @@ a {
 
 .layout--3 > .container > div:nth-child(2) {
   flex-basis: 50%;
+  margin-left: 26.5rem;
 }
 
 .layout--3 > .container > div:last-child {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 25%;
   flex-basis: 25%;
+  right: 4rem;
+  overflow-y: auto;
+  height: 57rem;
 }
 
 .layout--2 > .container > div:first-child {
@@ -474,7 +483,6 @@ a {
 .layout--2 > .container > div:last-child {
   flex-basis: 25%;
 }
-
 
 /*========== Layout Box ==========*/
 
@@ -525,9 +533,14 @@ a {
   .topics {
     display: none;
   }
+  .layout--3 > .container > div:last-child {
+    display: none;
+  }
 
   .layout--3 > .container > div:nth-child(2) {
     flex-basis: 100%;
+    width: 100%;
+    margin-left: 0;
   }
 }
 
@@ -672,7 +685,6 @@ a {
   }
 }
 
-
 /*==============================
 =>  Room List
 ================================*/
@@ -747,14 +759,14 @@ a {
   text-transform: capitalize;
   margin-bottom: 1.5rem;
   color: var(--color-main);
-  
+
   transition: all 0.3s ease-in-out;
 }
 
 .roomListRoom__content a:hover {
   color: var(--color-black);
 }
-.roomListRoom__content p{
+.roomListRoom__content p {
   color: var(--color-light-gray);
   font-weight: 600;
 }
@@ -787,4 +799,70 @@ a {
   border-radius: 5rem;
   font-weight: 500;
   font-size: 1.3rem;
+}
+
+/*==============================
+=>  Activities
+================================*/
+
+.activities {
+  background: var(--color-white);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.activities__header h2 {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-dark-light);
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  color: var(--color-light);
+  letter-spacing: 1px;
+  font-size: 1.4rem;
+}
+
+.activities__box {
+  margin: 1.5rem;
+  padding: 1.5rem;
+  border: 2px solid var(--color-gray);
+  border-radius: 5px;
+}
+
+.activities__boxHeader p {
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.activities__boxHeader p span {
+  color: var(--color-gray);
+  font-size: 1rem;
+  display: block;
+}
+
+.activities__boxContent {
+  margin-left: 4rem;
+}
+
+.activities__boxContent {
+  font-size: 1.2rem;
+}
+
+.activities__boxContent a:hover {
+  text-decoration: underline;
+}
+
+.activities__boxRoomContent {
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 0.7rem;
+  margin-left: -4.2rem;
+}
+
+.roomListRoom__actions svg {
+  fill: var(--color-light-gray);
 }

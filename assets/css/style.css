@@ -3,8 +3,9 @@
 :root {
   /* colors  */
   --color-white: #ffffff;
-  --color-light: #f0eef6;
   --color-gray: #9e98b3;
+  --color-light: #f0eef6;
+  --bg-color: #f0eef6;
   --color-primary: #6b4ce6;
   --color-secondary: #d6ccff;
   --color-success: #51fb51;
@@ -18,16 +19,22 @@
   --color-light-gray: #b2bdbd;
   --color-bg-dark: #2d2d39;
   --color-success: #5dd693;
-
+  
   --border-radius: 2rem;
   --card-border-radius: 1rem;
   --btn-padding: 0.6rem 2rem;
   --search-padding: 0.6rem 1rem;
   --card-padding: 1rem;
-
-  --sticky-top-left: 5.4rem;
-  --sticky-top-right: -18rem;
-}
+  
+  }
+  :root.dark {
+    --color-white: #333;
+    --color-light: #282525;
+    --color-dark: #f3f3f3;
+    --bg-color: #282525;
+    --color-dark-medium: #d2d4e2;
+    --color-dark-light: #d2d4e2;
+    }
 
 /* GLOBAL CSS  */
 *,
@@ -68,7 +75,7 @@ body {
   font-weight: 400;
   font-size: 1.5rem;
   color: var(--color-light-gray);
-  background-color: var(--color-light);
+  background-color: var(--bg-color);
   min-height: 100vh;
 }
 
@@ -653,22 +660,24 @@ a {
   justify-content: space-between;
   margin-bottom: 2.2rem;
   font-weight: 600;
-  color: var(--color-gray);
+  color: var(--color-dark-medium);
   transition: all 0.3s ease-in-out;
 }
 
-.topics__list li a.active,
+.topics__list li a.active span,
 .topics__list li a:hover {
-  color: var(--color-main);
+  background: var(--color-dark);
+  color: var(--color-white);
 }
 
 .topics__list li a span {
   padding: 0.5rem 0.8rem;
-  background-color: var(--color-dark);
+  background-color: var(--color-main);
   border-radius: 4px;
   font-size: 1.3rem;
-  font-weight: 00;
+  font-weight: 500;
   letter-spacing: 1px;
+  color: var(--color-white);
 }
 
 .topics-page a:hover {
@@ -799,11 +808,12 @@ a {
   fill: var(--color-main);
   width: 1.6rem;
   height: 1.6rem;
-}
-
-.roomListRoom__topic {
-  padding: 5px 1.5rem;
-  background-color: var(--color-dark-medium);
+  }
+  
+  .roomListRoom__topic {
+    padding: 5px 1.5rem;
+    background-color: var(--color-main);
+    color: var(--color-dark);
   border-radius: 5rem;
   font-weight: 500;
   font-size: 1.3rem;
@@ -822,7 +832,7 @@ a {
 .activities__header h2 {
   display: flex;
   justify-content: center;
-  background-color: var(--color-dark-light);
+  background-color: var(--color-main);
   text-transform: uppercase;
   font-weight: 600;
   padding: 1rem 1.5rem;
@@ -923,16 +933,16 @@ a {
 /*==============================
 =>  Auth
 ================================*/
-.sign-in.auth.layout{
+.sign-in.auth.layout {
   margin-top: 35rem;
-} 
+}
 .auth__tagline {
   text-align: center;
   margin-bottom: 3rem;
   color: var(--color-main);
   font-weight: 500;
   font-size: 1.8rem;
-text-transform: capitalize;
+  text-transform: capitalize;
 }
 .auth .layout__boxHeader {
   text-align: center;
@@ -1018,4 +1028,415 @@ text-transform: capitalize;
 
 .profile-page .roomList__header h2 {
   color: var(--color-dark-light);
+}
+
+/*==============================
+=>  Room
+================================*/
+
+
+.profile-page.layout.layout--2 {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 1rem;
+}
+
+.room,
+.participants {
+  background: var(--color-white);
+  max-height: 95.5vh;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  position: relative;
+}
+
+@media screen and (max-width: 900px) {
+  .participants {
+    display: none;
+  }
+
+  .layout--2 > .container > div:first-child {
+    flex-basis: 100%;
+  }
+}
+
+.room__top,
+.participants__top {
+  background: var(--color-dark-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+.room__top svg,
+.thread__top svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: var(--color-light);
+  cursor: pointer;
+}
+
+.room__topLeft {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.room__topLeft h3,
+.participants__top {
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-light);
+}
+
+.room__topLeft svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: var(--color-light);
+}
+
+.room__topRight {
+  display: flex;
+  column-gap: 1em;
+}
+
+.room__topRight svg {
+  fill: var(--color-main-light);
+}
+
+.room__header {
+  max-height: 30vh;
+  overflow-y: auto;
+  position: absolute;
+  width: 95%;
+  background: var(--color-white);
+  z-index: 999;
+  top: 4.4rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .room__header {
+    top: 4.3rem;
+    padding-right: 2rem;
+  }
+}
+
+.room__box {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  height: 95.5vh;
+  padding-bottom: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .room__box {
+    padding-left: 2.5rem;
+    padding-right: 2rem;
+    height: 890.5vh;
+    overflow-y: auto;
+    padding-bottom: 0;
+  }
+}
+
+.room__info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.room__info h3 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: var(--color-main);
+}
+
+.room__hosted p {
+  text-transform: uppercase;
+  color: var(--color-gray);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 2;
+}
+
+.room__author {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.room__author:hover {
+  text-decoration: underline;
+}
+
+.room__topics {
+  padding: 0.5rem 1.5rem;
+  background: var(--color-dark-light);
+  color: var(--color-light);
+  display: inline-block;
+  font-size: 1.4rem;
+  border-radius: 1.5rem;
+  margin: 1rem 0;
+}
+
+.room__conversation {
+  position: relative;
+  top: 0rem;
+  margin-bottom: 1rem;
+  height: 100%;
+}
+
+.threads h3 {
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-gray);
+}
+
+.threads {
+  background: var(--color-bg);
+  border-radius: 0.7rem;
+  overflow-y: auto;
+  height: 100%;
+  padding: 0 2rem 4rem 2rem;
+}
+
+.thread {
+  border-left: 2px solid var(--color-dark);
+  padding-left: 1rem;
+  margin: 2rem 0;
+  padding: 2rem;
+}
+
+.thread__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.thread__top svg {
+  fill: var(--color-dark-light);
+}
+
+.thread__author {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.thread__authorInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.thread__details {
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.room__message {
+  position: absolute;
+  z-index: 111;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+}
+
+.room__message > form > input {
+  resize: none;
+  background-color: var(--color-dark-light);
+  color: var(--color-light);
+  border: none;
+  outline: none;
+  width: 100%;
+  border-bottom-left-radius: 0.7rem;
+  border-bottom-right-radius: 0.7rem;
+  height: 4.5rem;
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  position: relative;
+}
+.room__message > form {
+  display: flex;
+  justify-content: space-between;
+}
+.room__message > form .submit {
+  position: absolute;
+  z-index: 99;
+  height: 100%;
+  width: 7rem;
+  right: 0;
+  background-color: var(--color-white);
+}
+.room__message > form .btn {
+  border: none;
+  
+}
+.room__message > form > input::placeholder {
+  color: var(--color-light-gray);
+}
+
+.participants__top span {
+  color: var(--color-main);
+  font-size: 1.3rem;
+  text-transform: none;
+}
+
+.participants__top {
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.participants__list {
+  padding: 2rem;
+  height: 82.5vh;
+  overflow-y: scroll;
+  padding-bottom: 0;
+}
+
+.participant {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.participant p {
+  color: var(--color-light-gray);
+  line-height: 1.2;
+}
+
+.participant span {
+  display: block;
+  font-weight: 500;
+  color: var(--color-main);
+  font-weight: 1.4rem;
+}
+
+/*==============================
+=>  Theme
+================================*/
+
+
+.customize-theme {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  font-size: 1,2rem;
+}
+.customize-theme .card {
+  background: var(--color-white);
+  padding: 3rem;
+  border-radius: var(--card-border-radius);
+  width: 50%;
+  box-shadow: 0 0 1rem var(--color-primary);
+}
+
+.customize-theme .choose-color {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-light);
+  padding: var(--search-padding);
+  border-radius: var(--card-border-radius);
+}
+
+.customize-theme .choose-size span.active {
+  background: var(--color-primary);
+}
+
+.customize-theme .color,
+.customize-theme .background {
+  margin-top: 3rem;
+}
+
+.customize-theme .color h4,
+.customize-theme .background h4{
+  margin-bottom: 1.4rem;
+  color: var(--color-dark-light);
+}
+
+.customize-theme .choose-color span {
+  width: 2.2rem;
+  height: 2.2rem;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.customize-theme .choose-color span:nth-child(1) {
+  background: #734ce6;
+}
+.customize-theme .choose-color span:nth-child(2) {
+  background: #e6d14c;
+}
+.customize-theme .choose-color span:nth-child(3) {
+  background: rgb(230, 76, 97);
+}
+.customize-theme .choose-color span:nth-child(4) {
+  background: #4ce69e;
+}
+.customize-theme .choose-color span:nth-child(5) {
+  background: #4ca6e6;
+}
+
+.customize-theme .choose-color span.active {
+  border: 5px solid #fff;
+}
+
+/* BACKGROUND  */
+
+.customize-theme .choose-bg {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.customize-theme .choose-bg > div {
+  display: flex;
+  width: 100%;
+  font-size: 1rem;
+  align-items: center;
+  background: var(--color-light);
+  padding: var(--search-padding);
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+.background .choose-bg > div.active {
+  border: 3px solid var(--color-primary);
+}
+.customize-theme .choose-bg .bg-1 {
+  background: #fff;
+  color: #333;
+}
+.customize-theme .choose-bg .bg-2 {
+  background: #151221;
+  color: #fff;
+}
+.customize-theme .choose-bg .bg-3 {
+  background: rgb(2, 2, 3);
+  color: #fff;
+}
+.customize-theme .choose-bg > div span {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid var(--color-gray);
+  border-radius: 50%;
+  margin-right: 1rem;
 }

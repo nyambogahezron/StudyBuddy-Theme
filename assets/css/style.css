@@ -13,29 +13,54 @@
   --color-dark: #241e38;
   --color-black: #151221;
   --color-main: #71c6dd;
+  --theme-color: #71c6dd;
   --color-main-light: #e1f6fb;
   --color-dark-medium: #51546e;
   --color-dark-light: #696d97;
   --color-light-gray: #b2bdbd;
   --color-bg-dark: #2d2d39;
   --color-success: #5dd693;
-  
+
   --border-radius: 2rem;
   --card-border-radius: 1rem;
   --btn-padding: 0.6rem 2rem;
   --search-padding: 0.6rem 1rem;
   --card-padding: 1rem;
-  
-  }
-  :root.dark {
-    --color-white: #333;
-    --color-light: #282525;
-    --color-dark: #f3f3f3;
-    --bg-color: #282525;
-    --color-dark-medium: #d2d4e2;
-    --color-dark-light: #d2d4e2;
-    }
-
+}
+:root.dark {
+  --color-white: #333;
+  --color-light: #282525;
+  --color-dark: #f3f3f3;
+  --bg-color: #282525;
+  --color-dark-medium: #d2d4e2;
+  --color-dark-light: #d2d4e2;
+  --color-bg-dark:#f2f2f2;
+}
+:root.dim {
+  --color-white: #19191b;
+  --color-light: #23272f;
+  --color-dark: #f3f3f3;
+  --bg-color: #1b1e24;
+  --color-black: #f2f2f2;
+  --color-bg-dark: #fff;
+  --color-dark-light: #b0b1bf;
+  --color-dark-medium: #d2d4e2;
+}
+:root.color-1 {
+  --theme-color: #71c6dd;
+}
+:root.color-2 {
+  --theme-color: #9d9d50;
+}
+:root.color-3 {
+  --theme-color: #6551a2;
+}
+:root.color-4 {
+  --theme-color: #4dbc88;
+}
+:root.color-5 {
+  --theme-color: #558db4;
+}
 /* GLOBAL CSS  */
 *,
 *::after,
@@ -101,7 +126,7 @@ img {
 
 a {
   display: inline-block;
-  color: var(--color-main);
+  color: #71c6dd;
   text-decoration: none;
 }
 
@@ -513,9 +538,15 @@ a {
 }
 
 .layout__boxHeader {
+  align-items: center;
   display: flex;
   padding: 1.5rem;
-  background-color: var(--color-dark-light);
+  background-color: var(--color-main);
+}
+
+.layout__boxHeader a svg {
+  fill: var(--color-dark);
+  margin-top: 7px;
 }
 
 .layout__boxTitle {
@@ -664,10 +695,13 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
-.topics__list li a.active span,
-.topics__list li a:hover {
+.topics__list li a.active span {
   background: var(--color-dark);
   color: var(--color-white);
+}
+
+.topics__list li a:hover {
+  margin-left: 10px;
 }
 
 .topics__list li a span {
@@ -693,6 +727,13 @@ a {
 
 .topics-page .header__search {
   display: block;
+}
+
+.auth .btn--main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5px;
 }
 
 @media screen and (max-width: 500px) {
@@ -808,12 +849,12 @@ a {
   fill: var(--color-main);
   width: 1.6rem;
   height: 1.6rem;
-  }
-  
-  .roomListRoom__topic {
-    padding: 5px 1.5rem;
-    background-color: var(--color-main);
-    color: var(--color-dark);
+}
+
+.roomListRoom__topic {
+  padding: 5px 1.5rem;
+  background-color: var(--color-main);
+  color: var(--color-dark);
   border-radius: 5rem;
   font-weight: 500;
   font-size: 1.3rem;
@@ -1034,7 +1075,6 @@ a {
 =>  Room
 ================================*/
 
-
 .profile-page.layout.layout--2 {
   position: fixed;
   height: 100vh;
@@ -1064,7 +1104,7 @@ a {
 
 .room__top,
 .participants__top {
-  background: var(--color-dark-light);
+  background: var(--color-main);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1105,7 +1145,7 @@ a {
 }
 
 .room__topRight svg {
-  fill: var(--color-main-light);
+  fill: var(--color-dark);
 }
 
 .room__header {
@@ -1212,6 +1252,9 @@ a {
   margin: 2rem 0;
   padding: 2rem;
 }
+.thread:last-child {
+  margin-bottom: 40px;
+}
 
 .thread__top {
   display: flex;
@@ -1249,43 +1292,56 @@ a {
   right: 0;
   background: transparent;
 }
-
+.room__message > form {
+  position: relative;
+}
 .room__message > form > input {
   resize: none;
-  background-color: var(--color-dark-light);
-  color: var(--color-light);
+  background-color: #51747d;
+  color: var(--color-white);
   border: none;
   outline: none;
   width: 100%;
   border-bottom-left-radius: 0.7rem;
   border-bottom-right-radius: 0.7rem;
   height: 4.5rem;
-  width: 100%;
+  width: 85%;
   padding: 1.2rem;
   font-size: 1.4rem;
+  margin-left: 40px;
   font-weight: 500;
   position: relative;
 }
 .room__message > form {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 .room__message > form .submit {
-  position: absolute;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   z-index: 99;
   height: 100%;
-  width: 7rem;
-  right: 0;
-  background-color: var(--color-white);
+  padding: 5px;
+  margin-right: 35px;
+  background-color: var(--color-main);
 }
 .room__message > form .btn {
   border: none;
-  
 }
 .room__message > form > input::placeholder {
-  color: var(--color-light-gray);
+  color: var(--color-dark);
 }
 
+.room__message .submit svg {
+  height: 28px;
+  width: 28px;
+  fill: var(--color-white);
+  background-color: transparent;
+}
 .participants__top span {
   color: var(--color-main);
   font-size: 1.3rem;
@@ -1327,26 +1383,40 @@ a {
 =>  Theme
 ================================*/
 
-
 .customize-theme {
+  display: flex;
   width: 100vw;
+  max-width: 1200px;
   height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   text-align: center;
-  display: grid;
+  justify-content: center;
   place-items: center;
-  font-size: 1,2rem;
+  font-size: 1.5rem;
 }
 .customize-theme .card {
   background: var(--color-white);
   padding: 3rem;
   border-radius: var(--card-border-radius);
-  width: 50%;
-  box-shadow: 0 0 1rem var(--color-primary);
+  max-width: 600px;
+  width: 100%;
 }
 
+@media screen and (max-width: 635px) {
+  .customize-theme .choose-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+@media screen and (max-width: 310px) {
+  .customize-theme .card {
+    max-width: 400px;
+    width: 90%;
+  }
+}
 .customize-theme .choose-color {
   display: flex;
   justify-content: space-between;
@@ -1366,7 +1436,7 @@ a {
 }
 
 .customize-theme .color h4,
-.customize-theme .background h4{
+.customize-theme .background h4 {
   margin-bottom: 1.4rem;
   color: var(--color-dark-light);
 }
@@ -1379,13 +1449,13 @@ a {
   cursor: pointer;
 }
 .customize-theme .choose-color span:nth-child(1) {
-  background: #734ce6;
+  background: #71c6dd;
 }
 .customize-theme .choose-color span:nth-child(2) {
   background: #e6d14c;
 }
 .customize-theme .choose-color span:nth-child(3) {
-  background: rgb(230, 76, 97);
+  background: #734ce6;
 }
 .customize-theme .choose-color span:nth-child(4) {
   background: #4ce69e;
@@ -1439,4 +1509,13 @@ a {
   border: 3px solid var(--color-gray);
   border-radius: 50%;
   margin-right: 1rem;
+}
+
+.home .create.btn--main,
+.activities__header h2,
+.topics__list li a span,
+.roomListRoom__topic,
+.layout__boxHeader,
+.participants__top {
+  background: var(--theme-color);
 }

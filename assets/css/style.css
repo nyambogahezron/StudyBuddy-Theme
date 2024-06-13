@@ -34,7 +34,7 @@
   --bg-color: #282525;
   --color-dark-medium: #d2d4e2;
   --color-dark-light: #d2d4e2;
-  --color-bg-dark:#f2f2f2;
+  --color-bg-dark: #f2f2f2;
 }
 :root.dim {
   --color-white: #19191b;
@@ -216,7 +216,7 @@ a {
   content: '';
   display: block;
   position: absolute;
-  left: 29px;
+  left: 22px;
   background-color: var(--color-gray);
   z-index: 111;
   border-radius: 50%;
@@ -249,7 +249,7 @@ a {
   width: 0.7rem;
   height: 0.7rem;
   bottom: 0px;
-  right: -6px;
+  right: -5px;
 }
 
 .avatar.avatar--large img {
@@ -511,6 +511,16 @@ a {
   right: 4rem;
   overflow-y: auto;
   height: 57rem;
+}
+
+@media screen and (max-width: 1100px) {
+  .layout--3 > .container > div:last-child {
+    right: 1.5rem;
+  }
+  .layout--3 > .container > div:nth-child(2) {
+  flex-basis: 47%;
+}
+
 }
 
 .layout--2 > .container > div:first-child {
